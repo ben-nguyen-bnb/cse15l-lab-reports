@@ -32,3 +32,5 @@ Horizontal Line:
 Code block line 1
 Code block line 2
 ```
+
+> Edits made in VSCode
