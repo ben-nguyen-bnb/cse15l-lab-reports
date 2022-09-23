@@ -6,6 +6,7 @@ Heading 1
 ==========
 ## Heading 2
 [UCSD](https://ucsd.edu/)
+
 [UCSD Image](https://collegevine.imgix.net/13ea25b5-3b27-412c-8be5-1f7e0bded961.jpg)
 > This is a Blockquote
 - List 1
@@ -14,8 +15,9 @@ Heading 1
 Horizontal Line:
 --------------------
 'Inline code' (very interesting)
-'''
+
+```
 # block of code
 Code block line 1
 Code block line 2
-'''
+```
