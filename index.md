@@ -25,7 +25,7 @@ Heading 1
 Horizontal Line:
 --------------------
 
-'Inline code (very interesting)' 
+`Inline code (very interesting)`
 
 ```
 # block of code
