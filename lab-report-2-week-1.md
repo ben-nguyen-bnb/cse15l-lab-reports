@@ -1,6 +1,5 @@
 Week 1
 # Lab 1: Remote Access
----
 This lab is focused on creating an environment to work on tasks remotely using a remote server
 
 ## Part 1: Installing Visual Studio Vode
