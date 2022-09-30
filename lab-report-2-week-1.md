@@ -91,9 +91,11 @@ The process of logging into the account was indeed much easier now that I didn't
 I used the following tips to try to edit my `WhereAmI.java` file,copy it over to my server account, and run it in 10 key strikes or less
 - Running a command directly on my `ssh` account on my local device by typing the command in quotes:
     `ssh cs15lfa22dz@ieng6.ucsd.edu "ls"
+    
     ![image](CommandsOnLocalDevice.jpg)
 - Runnign multiple commands at once using semicolons:
     `ls; pwd; cd ..`
+    
     ![Image](MultipleCommands.jpg)
 - Recalling previous commands by pressing the up-arrow key
 
