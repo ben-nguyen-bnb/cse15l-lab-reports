@@ -29,7 +29,7 @@ class Handler implements URLHandler {
                 if (parameters[0].equals("s")) {
                     String returning = "";
                     for (int i = 0; i < StringList.size(); i++) {
-                        if (StringList.get(i).indexOf()) {
+                        if (StringList.get(i).contains(parameters[1]) {
                             returning += StringList.get(i);
                         }
                     }
