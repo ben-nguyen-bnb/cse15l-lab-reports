@@ -11,29 +11,32 @@ class Handler implements URLHandler {
 
     public String handleRequest(URI url) {
         if (url.getPath().equals("/")) {
-            return String.format("StringList: %s", StringList.get(0));
-        } else if (url.getPath().equals("/add")) {
+            return StringList.toString();
+        } else if (url.getPath().equals("/addString")) {
             StringList.add("NewString");
             return String.format("String added!");
         } else {
+            // Adding a String
             System.out.println("Path: " + url.getPath());
             if (url.getPath().contains("/adding")) {
                 String[] parameters = url.getQuery().split("=");
                 if (parameters[0].equals("s")) {
-                    StringList.add(parameters[1]);
+                    StringList.add((String)parameters[1]);
                     return "String: " + parameters[1] + " has been added";
                 }
             }
+            // Finding which Strings contain the query
             else if (url.getPath().contains("/find")) {
                 String[] parameters = url.getQuery().split("=");
                 if (parameters[0].equals("s")) {
-                    String returning = "";
+                    ArrayList<String> returning = new ArrayList<String>();
                     for (int i = 0; i < StringList.size(); i++) {
-                        if (StringList.get(i).contains(parameters[1]) {
-                            returning += StringList.get(i);
+                        String check = (String)StringList.get(i);
+                        if (check.contains((String)parameters[1])) {
+                            returning.add(check);
                         }
                     }
-                    return returning;
+                    return returning.toString();
                 }
             }
             return "404 Not Found!";
