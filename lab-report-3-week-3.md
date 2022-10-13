@@ -89,6 +89,7 @@ The screenshot above displays the result of the handleRequest method when the qu
 
 ## Part 2: Test Cases and Bugs
 **ArrayExamples.java**
+
 ![Image](ArrayTestsInputInPlace.jpg)
 
 The screenshot above displays the failure-inducing input for the reverseInPlace method for the `ArrayExamples.java` file. The test checks if the method properly reversed an integer list with the elements `{0, 1, 2, 3, 4, 5, 6, 7}`
@@ -111,6 +112,7 @@ The screenshot above displays the fix to the bug. The size of the for loop was p
 
 
 **LinkedListExamples.java**
+
 ![Image](LinkedListInput.jpg)
 
 The screenshot above displays the failure-inducing input for the append method for the `LinkedListExamples.java` file. The test checks to see if the method properly appended an int `-2` to a LinkedList with 3 other elements already stored in the list.
