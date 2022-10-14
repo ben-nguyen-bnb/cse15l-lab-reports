@@ -2,7 +2,7 @@ Week 3
 # Week 3 Lab Report 2: Servers and Bugs
 This lab was focused on creating a server on the localhost in addition to creating test cases and debugging given code
 
-## Part 1: Simples Search Engine
+## Part 1: Simplest Search Engine
 The block of code below is the code used for the Simplest Search Engine for Week 2
 
 ```
@@ -75,12 +75,12 @@ The screenshot above displays the result of the handleRequest method of the code
 
 ![Image](SimplestServerAdding.jpg)
 
-The screenshot above displays the result of the handleRequest method after adding to the end of the url `adding?s=cat`. The `adding` indicates to the method that the url is giving a query, which is indicated by the `?` in the url. The `s=` in the query indicates that the following characters will be added to the member variable `StringList` as another element in it. The output, or what is displayed on the server, is a message that indicates that the String, in this case "cat" has been added
+The screenshot above displays the result of the handleRequest method after adding to the end of the url `adding?s=cat`. The `adding` indicates to the method that the url is giving a query, which is indicated by the `?` in the url. The `s=` in the query indicates that the following characters will be added to the member variable `StringList` as another element in it. The output, or what is displayed on the server, is a message that indicates that the String, in this case "cat", has been added.
 
 
 ![Image](SimplestServerDisplay.jpg)
 
-The screenshot above displays the member variable `StringList`. The list contains on the strings that haven been previously. In the screenshot provided, the String "dog" was added. This is the result of the handleRequest method when no extra lines are added to the url and just the original url is given.
+The screenshot above displays the member variable `StringList`. The list contains oll the strings that have been previously added. Another String "dog" was added before the screenshot. This is the result of the handleRequest method when no extra lines are added to the url and just the original url is given.
 
 
 ![Image](SimplestServerFind.jpg)
