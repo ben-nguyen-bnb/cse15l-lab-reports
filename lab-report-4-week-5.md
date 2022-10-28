@@ -20,7 +20,7 @@ In the command line, the `less` command also be used with `-X` in order to have 
 The `-p [pattern]` command-line option allows the `-less` command to jump to the first occurence of `pattern`. For example, the following screenshot shows the output when using the command `-less -p "however" rr74.txt` in the `technical/biomed/` directory. This is useful for the user as it allows them to quickly navigate to a specific location in the file.
 ![Image](less-p.jpg)
 
-## Part 1: find
+## Part 3: find
 The `find` command allows the user to find all files and directories under their current directory. For example, the following screenshot is snippet of the output of the `find biomed` command when in the `technical` directory. This is useful because it allows the user to be aware of what directory they're in, and what directories are beneath it.
 ![Image](find.jpg)
 
@@ -36,8 +36,22 @@ The `-empty` command-line option allows the user to find all directories that ha
 
 *`-name [pattern]`*
 
-The `-name [pattern]` command-line option allows the user to find all files that match the specified. For example, the following screenshot displays the output of the `find biomed -name ".txt"` command when in the `technical` directory. This command option is usefule because it helps the user find all files the whose filename follow a specific pattern
+The `-name [pattern]` command-line option allows the user to find all files that match the specified. For example, the following screenshot displays the output of the `find biomed -name ".txt"` command when in the `technical` directory. This command option is useful because it helps the user find all files the whose filename follow a specific pattern
 ![Image](find-name.jpg)
 
 
-## Part 1: grep
+## Part 3: grep
+The `grep` command allows users to search through a flie for a specified pattern in a line of the file. The command then displays the lines that contain the pattern. The following screenshot displays the output of the `grep "Mice" rr74.txt` when in the 'technical/biomed` directory. This command option is useful because it allows the user to quickly examine the contents of the file when looking for something in particular.
+![Image](grep.jpg)
+
+*`-i`*
+The `-i` command-line option allows the user to search for the specified pattern without having to worry about case sensitivity of the pattern. For example, the following screenshot displays the output of the `grep -i "MICE" rr74.txt` command when in the `technical/biomed` directory. This command-line option is useful for when the user is not sure of the case sensitivity of the pattern that they are looking for.
+![Image](grep-i.jpg)
+
+*`-c`*
+The `-c` command-line option allows the user to simply find the number of instances the grep command finds a match, displaying the number of matches instead of each case where there is a mtach. For example, the following screenshot displays the output of the `grep -c "mice" rr74.txt` command when in the `technical/biomed` directory. This command-line option is useful for when the user is not interested in the location of where grep matches, but simply the number of times grep finds a match.
+![Image](grep-c.jpg)
+
+*`-n`*
+The `-n` command-lien option allows the user to print the line number of where grep finds a match with its specified pattern. For example, the following screenshot displays the output of the `grep -n "mice" rr74.txt` command in the `technical/biomed` directory. This command-line option is useful for when the user wants to know the exact location of each match in the file.
+![Image](grep-n.jpg)
