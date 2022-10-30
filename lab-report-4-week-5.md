@@ -45,13 +45,16 @@ The `grep` command allows users to search through a file to find a specified pat
 ![Image](grep.jpg)
 
 *`-i`*
+
 The `-i` command-line option allows the user to search for the specified pattern without having to worry about case sensitivity of the pattern. For example, the following screenshot displays the output of the `grep -i "MICE" rr74.txt` command when in the `technical/biomed` directory. This command-line option is useful for when the user is not sure of the case sensitivity of the pattern that they are looking for.
 ![Image](grep-i.jpg)
 
 *`-c`*
+
 The `-c` command-line option allows the user to simply find the number of instances the grep command finds a match, displaying the number of matches instead of each case where there is a mtach. For example, the following screenshot displays the output of the `grep -c "mice" rr74.txt` command when in the `technical/biomed` directory. This command-line option is useful for when the user is not interested in the location of where grep matches, but simply the number of times grep finds a match.
 ![Image](grep-c.jpg)
 
 *`-n`*
+
 The `-n` command-lien option allows the user to print the line number of where grep finds a match with its specified pattern. For example, the following screenshot displays the output of the `grep -n "mice" rr74.txt` command in the `technical/biomed` directory. This command-line option is useful for when the user wants to know the exact location of each match in the file.
 ![Image](grep-n.jpg)
