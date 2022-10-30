@@ -7,3 +7,5 @@ Hello World
 [Lab 2 (Week 1:Lab_Report_1)](lab-report-2-week-1.html)
 
 [Lab 3 (Week_3:Lab_Report_2)](lab-report-3-week-2.html)
+
+[Lab 4 (Week 6: Lab_Report_3)](lab-report-4-week-5.html)
