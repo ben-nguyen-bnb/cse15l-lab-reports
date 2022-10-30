@@ -34,14 +34,14 @@ The `-maxdepth [number]` command-line option allows the user to control how many
 The `-empty` command-line option allows the user to find all directories that have no files or directories within it, as well as all empty files (contains nothing). For example, the following screenshot displays the output of the `find -empty` command after making and empty directory in the `technical` directory. This is useful because it allows the user to be aware of any files or directories that don't have any contents within them
 ![image](find-empty.jpg)
 
-*`-name [pattern]`*
+*`-newer`*
 
-The `-name [pattern]` command-line option allows the user to find all files that match the specified. For example, the following screenshot displays the output of the `find biomed -name ".txt"` command when in the `technical` directory. This command option is useful because it helps the user find all files the whose filename follow a specific pattern
-![Image](find-name.jpg)
+The `-newer` command-line option allows the user to find files that were either changed or created after the specified file. For example, the following screenshot displays a new file being created titled as `Hello.txt` in the `technical/biomed` directory. Afterwards, the command `find -newer rr74.txt` was used to produce the following output. This command is useful when the user wants to only look at more recent files.
+![Image](find-newer.jpg)
 
 
 ## Part 3: grep
-The `grep` command allows users to search through a flie for a specified pattern in a line of the file. The command then displays the lines that contain the pattern. The following screenshot displays the output of the `grep "Mice" rr74.txt` when in the 'technical/biomed` directory. This command option is useful because it allows the user to quickly examine the contents of the file when looking for something in particular.
+The `grep` command allows users to search through a file to find a specified pattern in a line of the file. The command then displays the lines that contain the pattern. The following screenshot displays the output of the `grep "Mice" rr74.txt` when in the 'technical/biomed` directory. This command option is useful because it allows the user to quickly examine the contents of the file when looking for something in particular.
 ![Image](grep.jpg)
 
 *`-i`*
