@@ -2,59 +2,53 @@ Week 5
 # Week 5 Lab Report 3: Researching Commands
 
 ## Part 1: Less
-The `less` command allows the user to only look at a small portion of a file at a time. Instead of opening the whole file, the `less` command only displays one page of the file at a time. The following output displays the use of `less rr74.txt` command when in the `technical/biomed/` directory. This is useful if the file is too large to load all at once.
+The `less` command allows the user to only look at a small portion of a file at a time instead of opening the whole file. Once viewing a file through the `less` command, the command will allow additional inputs to look through the file more efficiently or make adjustments to it.The following output displays the use of `less rr74.txt` command when in the `technical/biomed/` directory. This is useful if the file is too large to load all at once.
 ![Image](less.jpg)
 
-*`-N`*
-
-In addition to displaying the contents of a file a page at a time, the `-N` command displays the line numbers of the file too. The following screenshot shows the output of the `less -N rr74.txt` command when in the `technical/biomed/` directory. This is useful to more clearly navigate through the file.
-![Image](less-N.jpg)
-
 *`-X`*
+In the command line, the `less` command can be used with `-X` in order to have the contents of the file remain in the terminal even after exiting the `less` command. (By default, when leaving the `less` command, the terminal will clear the contents of the command) 
 
-In the command line, the `less` command also be used with `-X` in order to have the contents of the file remain in the terminal even after exiting the `less` command. (By default, when leaving the `less` command, the terminal will clear the contents of the command) The following screenshot shows the output of the `'less -X rr74.txt` command when in the `technical/biomed/` directory. This is convenient for the user to use instead of having to constantly open and close the file.
+1)
+The following screenshot shows the output of the `'less -X rr74.txt` command when in the `technical/biomed/` directory. The command opens the `rr74.txt` file and leaving the file in the terminal when the user is done looking at the file. This is convenient for the user to use instead of having to constantly open and close the file.
 ![Image](less-X.jpg)
+
+2)
+The follwoing screenshot shows the output of the command `grep "mice" rr74.txt > hello.txt | less -X hello.txt` when in the `technical/biomed/` directory. The `-X` option allows the user to keep the output of the `grep` command in the terminal in case the user needs to look at the output of the modified file in the terminal. This shows how the `-X` command-line option can be useful when used in combination with other commands.
+![Image](less-grep.jpg)
+
+3)
+The following screenshot shows the output of the `less -X rr74.txt` command when in the `technical/biomed/` directory, however the input `q` was given after a section of the file was reached. This is useful for the user when the user only wants to keep a certain part of the file in the terminal open instead of the whole file.
+![Image](less-section.jpg)
+
 
 *`-p [pattern]`*
 
-The `-p [pattern]` command-line option allows the `-less` command to jump to the first occurence of `pattern`. For example, the following screenshot shows the output when using the command `-less -p "however" rr74.txt` in the `technical/biomed/` directory. This is useful for the user as it allows them to quickly navigate to a specific location in the file.
+The `-p [pattern]` command-line option allows the `-less` command to jump to the first occurence of `[pattern]`. 
+
+1)
+The following screenshot shows the output when using the command `less -p "however" rr74.txt` in the `technical/biomed/` directory. The command is searching through the file and openeing the file starting at the first instance of `[pattern]`. This is useful for the user as it allows them to quickly navigate to a specific location in the file.
 ![Image](less-p.jpg)
 
-## Part 3: find
-The `find` command allows the user to find all files and directories under their current directory. For example, the following screenshot is snippet of the output of the `find biomed` command when in the `technical` directory. This is useful because it allows the user to be aware of what directory they're in, and what directories are beneath it.
-![Image](find.jpg)
+2)
+The following screenshot shows the output of the command `less -p "Materials" -X -rr74.txt` when in the `technical/biomed/` directory. The command searches the file for the specified pattern and opens the file at that location. Afterwards, when the user is finished looking at the file, the file will stay in the terminal. The use of both `-p` and `-X` is useful because it allows the user to only grab a certain part of a long file if they know what section they want to keep in their terminal.
+![Image](less-p-x.jpg)
 
-*`-maxdepth [number]`*
-
-The `-maxdepth [number]` command-line option allows the user to control how many subdirectories/levels the command should go. For example, the following screenshot displays the output of the `find -maxdepth 1` command when in the `technical` directory. This is useful when the user only needs to be aware of a specific amount of directories, and not every subdirectory beneath them.
-![Image](find-maxDepth.jpg)
-
-*`-empty`*
-
-The `-empty` command-line option allows the user to find all directories that have no files or directories within it, as well as all empty files (contains nothing). For example, the following screenshot displays the output of the `find -empty` command after making and empty directory in the `technical` directory. This is useful because it allows the user to be aware of any files or directories that don't have any contents within them
-![image](find-empty.jpg)
-
-*`-newer`*
-
-The `-newer` command-line option allows the user to find files that were either changed or created after the specified file. For example, the following screenshot displays a new file being created titled as `Hello.txt` in the `technical/biomed` directory. Afterwards, the command `find -newer rr74.txt` was used to produce the following output. This command is useful when the user wants to only look at more recent files.
-![Image](find-newer.jpg)
-
-
-## Part 3: grep
-The `grep` command allows users to search through a file to find a specified pattern in a line of the file. The command then displays the lines that contain the pattern. The following screenshot displays the output of the `grep "Mice" rr74.txt` when in the 'technical/biomed` directory. This command option is useful because it allows the user to quickly examine the contents of the file when looking for something in particular.
-![Image](grep.jpg)
+3)
+The following screenshot shows the output of `less -p "Material" -N rr74.txt` command when in the `technical/biomed` directory. The command searches through the file for the first instance of the pattern and numbers the line where the file is starting at. The use of the `-p` command-line option with `-N` because it allows the user to be aware of where they are in a file once the open the file at the location they want.
+![Image](less-p-n.jpg)
 
 *`-i`*
 
-The `-i` command-line option allows the user to search for the specified pattern without having to worry about case sensitivity of the pattern. For example, the following screenshot displays the output of the `grep -i "MICE" rr74.txt` command when in the `technical/biomed` directory. This command-line option is useful for when the user is not sure of the case sensitivity of the pattern that they are looking for.
-![Image](grep-i.jpg)
+The `-i` command-line option allows searches done with the file to ignore the case of the search
 
-*`-c`*
+1)
+The following screenshot shows the output of the `less -i rr74.txt` command, and then the input of `/no` to search for any instance of "no" in the file while ignoring the case of the characters in "no", when in the `technical/biomed` directory. The command opens the file with the `less` command and allows the user to give inputs while in a special view of the file to make adjustments are look through the file more efficiently. However, with the `-i` command-line option, the search will ignore the case of the pattern. This is useful to the user when they want to search for something specific in the file without having to worry about the case of their search.
+![Image](less-i.jpg)
 
-The `-c` command-line option allows the user to simply find the number of instances the grep command finds a match, displaying the number of matches instead of each case where there is a mtach. For example, the following screenshot displays the output of the `grep -c "mice" rr74.txt` command when in the `technical/biomed` directory. This command-line option is useful for when the user is not interested in the location of where grep matches, but simply the number of times grep finds a match.
-![Image](grep-c.jpg)
+2)
+The following screenshot shows the outut of the `less -i -p "introduction" rr74.txt` command when in the `technical/biomed` directory. The command searches and opens the file at the first instance of the pattern while ignoring the case ofthe pattern. This command is useful when used with the `-p` command because the search of the `-p` command will also ignore cases.
+![Image](less-i-p.jpg)
 
-*`-n`*
-
-The `-n` command-lien option allows the user to print the line number of where grep finds a match with its specified pattern. For example, the following screenshot displays the output of the `grep -n "mice" rr74.txt` command in the `technical/biomed` directory. This command-line option is useful for when the user wants to know the exact location of each match in the file.
-![Image](grep-n.jpg)
+3)
+The following screenshot shows the output of the `less -i -X -p "conclusion" rr74.txt` command when in the `technical/biomed` directory. The command shows how the `-i` command-line option can be used with any command, in particular the example shows how the command-line option could be used with the other 2 command-line options shows before. The command specifically shows how a user could keep a certain section of a file in the terminal after ignoring the case of the search, but the example is meant to show how flexible the `-i` option is and how it could be used inconjunction with other commands to create a braoder search for something within the file.
+![Image](less-withAll.jpg)
