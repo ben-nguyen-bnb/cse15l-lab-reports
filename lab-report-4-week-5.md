@@ -6,6 +6,7 @@ The `less` command allows the user to only look at a small portion of a file at 
 ![Image](less.jpg)
 
 *`-X`*
+
 In the command line, the `less` command can be used with `-X` in order to have the contents of the file remain in the terminal even after exiting the `less` command. (By default, when leaving the `less` command, the terminal will clear the contents of the command) 
 
 1)
