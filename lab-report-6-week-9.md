@@ -17,7 +17,7 @@ if [[ -f ListExamples.java ]]
 then 
     echo "ListExamples.java File was found"
 else 
-    echo "0/5 tests passed"
+    echo "[FAILED] 0/5 tests passed"
     echo "ListExamples.java file is not found"
     exit
 fi
@@ -28,7 +28,7 @@ if [[  $? -eq 0  ]]
 then
     echo "file was compiled"
 else
-    echo "1/5 tests passed"
+    echo "[FAILED] 1/5 tests passed"
     echo "file was not compiled"
     cat error.txt
     exit
@@ -47,139 +47,175 @@ else
 fi
 ```
 
+I was unfortunately not able to run the GradeServer.java file appropriately on the server, even when running the `java GradeServer 4000` on Git Bash. The following screenshot is the result of running the command on Git Bash, and using `https://github.com/ucsd-cse15l-f22/list-methods-corrected.git` as the query on Windows. I have also tried running the GradeServer on my `ssh` account but reached a similar issue
+![Image](git-notworking.jpg)
 
+The following three screenshots are the results of the `grade.sh` file being run on my local desktop and their reported grade.
+
+Example 1: `https://github.com/ucsd-cse15l-f22/list-methods-corrected.git`
+
+![Image](bash1.jpg)
+
+Example 2: `https://github.com/ucsd-cse15l-f22/list-methods-lab3.git`
+
+![Image](bash2-2.jpg)
+![Image](bash2-3.jpg)
+
+Example 3: `https://github.com/ucsd-cse15l-f22/list-methods-compile-error.git`
+
+![Image](bash3.jpg)
 
 ## Part 2
-Tracing `grade.sh` for Example 2
+Tracing `grade.sh` for Example 1
 Student submission:
 
 `https://github.com/ucsd-cse15l-f22/list-methods-corrected.git`
 
 
-1. Line 1: `rm -rf student-submission`
+Line 1: `rm -rf student-submission`
 
-Standard Output: [blank]
+removes all files in student-submission and the directory itself
 
-Standard Error: [blank]
+* Standard Output: [blank]
 
-Return Code: 0
+* Standard Error: [blank]
 
-2. Line 2: `git clone $1 student-submission`
+* Return Code: 0
 
-Standard Output: [blank]
+Line 2: `git clone $1 student-submission`
 
-Standard Error:
+Clones the given student submission into a directory called `student-submission`
 
-`Cloning into 'student-submission'...`
+* Standard Output: [blank]
 
-Return Code: 0
+* Standard Error:
 
-3. Line 3: `cp TestListExamples.java student-submission`
+        `Cloning into 'student-submission'...`
 
-Standard Output: [blank]
+* Return Code: 0
 
-Standard Error: [blank]
+Line 3: `cp TestListExamples.java student-submission`
 
-Return Code: 0
+Copies over the `TestListExamples.java` file into `student-submission`
 
-4. Line 4: `cp lib/hamcrest-core-1.3.jar student-submission` 
+* Standard Output: [blank]
 
-Standard Output: [blank]
+* Standard Error: [blank]
 
-Standard Error: [blank]
+* Return Code: 0
 
-Return Code: 0
+Line 4: `cp lib/hamcrest-core-1.3.jar student-submission` 
 
-5. Line 5: `cp lib/junit-4.13.2.jar student-submission`
+Copies over `lib/hamcrest-core-1.3.jar` into `student-submission` in order to run jUnit tests
 
-Standard Output: [blank]
+* Standard Output: [blank]
 
-Standard Error: [blank]
+* Standard Error: [blank]
 
-Return Code: 0
+* Return Code: 0
 
-6. Line 6: `cd student-submission`
+Line 5: `cp lib/junit-4.13.2.jar student-submission`
 
-Standard Output: [blank]
+Copies over `lib/junit-4.13.2.jar` into `student-submission` in order to run jUnit tests
 
-Standard Error: [blank]
+* Standard Output: [blank]
 
-Return Code: 0
+* Standard Error: [blank]
 
-7. Line 8: `if [[ -f ListExamples.java ]]`
+* Return Code: 0
 
-The condition was true. In this line, the command is determining whether or not the `ListExamples.java` was in the student submission, and whether or not the file was submitted in the appropriate directory in the submission. Since in this example the student submitted the file and the file was in the approrpiate directory, the condition of this statement was true
+Line 6: `cd student-submission`
 
-8. Line 9: `then`
+Changes current directory to `student-submission`
 
-Indicates to the script to run the next section of code since the if statement's condition was true
+* Standard Output: [blank]
 
-9. Line 10: `echo "ListExamples.java File was found"`
+* Standard Error: [blank]
 
-Standard Output: 
+* Return Code: 0
 
-`ListExamples.java File was found`
+Line 8: `if [[ -f ListExamples.java ]]`
 
-Standard Error: [blank]
+* The condition was true. In this line, the command is determining whether or not the `ListExamples.java` was in the student submission, and whether or not the file was submitted in the appropriate directory in the submission. Since in this example the student submitted the file and the file was in the approrpiate directory, the condition of this statement was true
 
-Return Code: 0
+Line 9: `then`
 
-10, Lines 11-14:
+* Indicates to the script to run the next section of code since the if statement's condition was true
+
+Line 10: `echo "ListExamples.java File was found"`
+
+Prints out the statement `ListExamples.java File was found` in the terminal
+
+* Standard Output: 
+
+        `ListExamples.java File was found`
+
+* Standard Error: [blank]
+
+* Return Code: 0
+
+Lines 11-14:
 ```
 else 
-    echo "0/5 tests passed"
+    echo "[FAILED] 0/5 tests passed"
     echo "ListExamples.java file is not found"
     exit
 ```
-This block of code did not run because the if statement's condition in line 8 was true
+* This block of code did not run because the if statement's condition in line 8 was true
 
-11. Line 15: `fi`
+Line 15: `fi`
 
-Closes the if statement
+* Closes the if statement
 
-12. Line 17: `javac -cp ".;hamcrest-core-1.3.jar;junit-4.13.2.jar" TestListExamples.java 2> error.txt > output.txt`
+Line 17: `javac -cp ".;hamcrest-core-1.3.jar;junit-4.13.2.jar" TestListExamples.java 2> error.txt > output.txt`
 
-Standard Output: [blank]
+Compiles the `TestListExamples.java` file and directs the standard error to `error.txt` and the standard noutput to `output.txt`
 
-Standard Error: [blank]
+* Standard Output: [blank]
 
-Return Code: 0
+* Standard Error: [blank]
 
-13. Line 19: `if [[  $? -eq 0  ]]`
+* Return Code: 0
 
-The condition was true. This if statement determines whether or not the return code of the previous command (`javac -cp ".;hamcrest-core-1.3.jar;junit-4.13.2.jar" TestListExamples.java 2> error.txt > output.txt`) was 0 or not. Since the return code of the command was 0 (the code successfuly compiled without any compiler errors), the condition is true
+Line 19: `if [[  $? -eq 0  ]]`
 
-14. Line 20: `then`
+* The condition was true. This if statement determines whether or not the return code of the previous command (`javac -cp ".;hamcrest-core-1.3.jar;junit-4.13.2.jar" TestListExamples.java 2> error.txt > output.txt`) was 0 or not. Since the return code of the command was 0 (the code successfuly compiled without any compiler errors), the condition is true
 
-Indicates to the script to run the next section of code since the if statement's condition was true.
+Line 20: `then`
 
-15. Line 21: `echo "file was compiled"`
+* Indicates to the script to run the next section of code since the if statement's condition was true.
 
-Standard Output: 
+Line 21: `echo "[FAILED] file was compiled"`
 
-`file was compiled`
+Prints out the statement `file was compiled` in the terminal
 
-Standard Error: [blank]
+* Standard Output: 
 
-Return Code: 0
+        `file was compiled`
 
-16. Lines 22-26:
+* Standard Error: [blank]
+
+* Return Code: 0
+
+Lines 22-26:
 ```
 else
-    echo "1/5 tests passed"
+    echo "[FAILED] 1/5 tests passed"
     echo "file was not compiled"
     cat error.txt
     exit
 ```
-This block of code did not run because the if statement's condition in line 19 was true.
+* This block of code did not run because the if statement's condition in line 19 was true.
 
-17. Line 27: `fi`
+Line 27: `fi`
 
-Closes the if statement
+* Closes the if statement
 
-18. Line 29: `java -cp ".;hamcrest-core-1.3.jar;junit-4.13.2.jar" org.junit.runner.JUnitCore TestListExamples 2> RuntimeError.txt > RuntimeOutput.txt`
+Line 29: `java -cp ".;hamcrest-core-1.3.jar;junit-4.13.2.jar" org.junit.runner.JUnitCore TestListExamples 2> RuntimeError.txt > RuntimeOutput.txt`
 
-Standard Output:
+Runs the `TestListExamples.java` file and directs the standard error to `RuntimtError.txt` and standard outut to `RuntimeOutput.txt`
+
+* Standard Output:
 ```
 [JUnit version 4.13.2
 
@@ -190,37 +226,41 @@ Time: 0.039
 OK (3 tests)]
 ```
 
-Standard Error: [blank]
+* Standard Error: [blank]
 
-Return Code: 0
+* Return Code: 0
 
-19. Line 30: `if [ $? -eq 0 ]`
+Line 30: `if [ $? -eq 0 ]`
 
-The condition was true. This if statement determines whether or not the return code of the previous command (`javac -cp ".;hamcrest-core-1.3.jar;junit-4.13.2.jar" TestListExamples.java 2> error.txt > output.txt`) was 0 or not. Since the return code of the command was 0 (the code successfuly ran without any runtime errors), the condition is true
+* The condition was true. This if statement determines whether or not the return code of the previous command (`javac -cp ".;hamcrest-core-1.3.jar;junit-4.13.2.jar" TestListExamples.java 2> error.txt > output.txt`) was 0 or not. Since the return code of the command was 0 (the code successfuly ran without any runtime errors), the condition is true
 
-20. Line 31: `then`
+Line 31: `then`
 
-Indicates to the script to run the next section of code since the if statement's condition was true.
+* Indicates to the script to run the next section of code since the if statement's condition was true.
 
-21. Line 32: `"[PASSED] 5/5 tests passed"`
+Line 32: `echo "[PASSED] 5/5 tests passed"`
 
-Standard Output: 
+Prints out the statement `[PASSED] 5/5 tests passed` in the terminal
 
-`[PASSED] 5/5 tests passed`
+* Standard Output: 
 
-Standard Error: [blank]
+        `[PASSED] 5/5 tests passed`
 
-Return Code: 0
+* Standard Error: [blank]
 
-22. Line 33: `exit`
+* Return Code: 0
 
-Standard Output: [blank]
+Line 33: `exit`
 
-Standard Error: [blank]
+Terminates the grade.sh script and exits it
 
-Return Code: Non 0 exit code
+* Standard Output: [blank]
 
-23. Lines 34-39:
+* Standard Error: [blank]
+
+* Return Code: Non 0 exit code
+
+Lines 34-39:
 ```
 else
     echo "at least 2/5 tests passed"
@@ -228,6 +268,6 @@ else
     cat RuntimeOutput.txt
     exit
 ```
-This block of code did not run because the if statement's condition in line 30 was true. Additionally, line the 33 exited the bash script and therefore prevented the script from running the rest of the file
+* This block of code did not run because the if statement's condition in line 30 was true. Additionally, line the 33 exited the bash script and therefore prevented the script from running the rest of the file
 
 
